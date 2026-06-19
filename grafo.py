@@ -1,11 +1,11 @@
 class Grafo:
     def __init__(self):
-        #Tabela hash: idTexto -> dados do vértice
+        #tabela hash: idTexto -> dados do vértice
         #cada vértice guarda a categoria (texto treino) e o conjunto de palavras-chave do texto.
         self.vertices = {}
 
-        #Lista de adjacência: idTexto -> { idVizinho: peso }
-        #Implementada como dicionário de dicionários (tabela hash aninhada), permitindo consultar o peso de uma aresta específica em tempo O(1).
+        #lista de adjacência: idTexto -> { idVizinho: peso }
+        #implementada como dicionário de dicionários (tabela hash aninhada), permitindo consultar o peso de uma aresta específica em tempo O(1).
         self.adjacencia = {}
 
     def adicionarVertice(self, idTexto, palavras, categoria=None):
@@ -19,7 +19,7 @@ class Grafo:
         self.adjacencia[idTexto] = {}
 
     def calcularPeso(self, palavrasA, palavrasB):
-        #Calcula o peso da aresta entre dois textos: a quantidade de palavras que eles têm em comum.
+        #calcula o peso da aresta entre dois textos: a quantidade de palavras que eles têm em comum.
         return len(palavrasA & palavrasB)
 
     def adicionarAresta(self, idA, idB, peso):
