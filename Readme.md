@@ -42,12 +42,20 @@ no pré-processamento para contagem de palavras.
 
 ## Como executar
 
-Modo interativo(digita uma notícia e recebe a categoria):
+### Pré-requisitos
+- Python 3.x instalado
 
-```
-python3 main.py
-```
+### Passos
 
+1. Clone o repositório
+```
+git clone https://github.com/Vt010/Classificador-de-noticias-
+cd Classificador-de-noticias-
+```
+2. Execute o programa
+```
+python main.py
+```
 ## Integrantes do grupo
 
 - DANILO SARMENTO BARROS
@@ -55,8 +63,3 @@ python3 main.py
 - KAUA RICHARD DE SOUZA CAVALCANTE
 - MARIO VINICIUS BELEZA CARNEIRO
 - Nathan Pontes Romao
-
-## Uso de LLM no desenvolvimento
-
-(preencher na apresentação final — descrever como LLMs foram usados:
-geração de dados fictícios, apoio na estruturação do código, etc.)
