@@ -34,7 +34,8 @@ class ClassificadorNoticias:
         fila = Fila()
         fila.enfileirar((idOrigem, 0))  #(vértice, nível atual)
 
-        contagemCategorias = Counter()
+        nivelEmAnalise = 1
+        contagemNivel = Counter()
 
         while not fila.vazia():
             verticeAtual, nivelAtual = fila.desenfileirar()
@@ -48,17 +49,41 @@ class ClassificadorNoticias:
 
                 visitados.add(vizinhoId)
                 categoriaVizinho = self.grafo.vertices[vizinhoId]["categoria"]
+                proximoNivel = nivelAtual + 1
+
+                if proximoNivel > nivelEmAnalise:
+                    vencedora = self.obterVencedora(contagemNivel, categoriasCandidatas)
+                    if vencedora is not None:
+                        return vencedora
+
+                    nivelEmAnalise = proximoNivel
+                    contagemNivel = Counter()
 
                 if categoriaVizinho is not None:
-                    contagemCategorias[categoriaVizinho] += 1
+                    contagemNivel[categoriaVizinho] += 1
 
-                fila.enfileirar((vizinhoId, nivelAtual + 1))
+                fila.enfileirar((vizinhoId, proximoNivel))
 
-        # Filtra apenas as categorias que estavam empatadas.
+        vencedora = self.obterVencedora(contagemNivel, categoriasCandidatas)
+        if vencedora is not None:
+            return vencedora
+
+        return sorted(categoriasCandidatas)[0]
+
+    def obterVencedora(self, contagemCategorias, categoriasCandidatas):
         contagemFiltrada = {
             categoria: contagemCategorias.get(categoria, 0)
             for categoria in categoriasCandidatas
         }
 
-        categoriaVencedora = max(contagemFiltrada, key=contagemFiltrada.get)
-        return categoriaVencedora
+        maiorContagem = max(contagemFiltrada.values())
+        categoriasVencedoras = [
+            categoria
+            for categoria, contagem in contagemFiltrada.items()
+            if contagem == maiorContagem
+        ]
+
+        if maiorContagem > 0 and len(categoriasVencedoras) == 1:
+            return categoriasVencedoras[0]
+
+        return None
