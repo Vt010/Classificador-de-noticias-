@@ -1,3 +1,5 @@
+from collections import Counter
+
 from fila import Fila
 
 
