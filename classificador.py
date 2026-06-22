@@ -68,6 +68,10 @@ class ClassificadorNoticias:
         if vencedora is not None:
             return vencedora
 
+        vencedora = self.desempatarPorSomaPesosDiretos(idOrigem, categoriasCandidatas)
+        if vencedora is not None:
+            return vencedora
+
         return sorted(categoriasCandidatas)[0]
 
     def obterVencedora(self, contagemCategorias, categoriasCandidatas):
@@ -87,3 +91,14 @@ class ClassificadorNoticias:
             return categoriasVencedoras[0]
 
         return None
+
+    def desempatarPorSomaPesosDiretos(self, idOrigem, categoriasCandidatas):
+        somaPorCategoria = Counter()
+
+        for vizinhoId, peso in self.grafo.vizinhos(idOrigem).items():
+            categoria = self.grafo.vertices[vizinhoId]["categoria"]
+
+            if categoria in categoriasCandidatas:
+                somaPorCategoria[categoria] += peso
+
+        return self.obterVencedora(somaPorCategoria, categoriasCandidatas)
