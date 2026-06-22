@@ -13,6 +13,9 @@ STOPWORDS = {
     "vocês", "lhe", "lhes", "ao", "aos", "à", "às", "pelo", "pela",
     "pelos", "pelas", "num", "numa", "será", "foi", "são", "está",
     "estão", "ser", "estar", "ter", "tem", "têm", "havia", "houve",
+    "último", "última", "durante", "todos", "toda", "todas", "segundo", 
+    "primeiro", "primeira", "foram", "exatamente", "após", "contra", "semana", 
+    "internacional", "brasil", "brasileiro", "brasileira", "vence"
 }
 
 
