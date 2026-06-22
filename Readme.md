@@ -1,6 +1,6 @@
 # Classificador de Notícias por Grafo
 
-Trabalho da disciplina de Estrutura de Dados — UnB.
+Trabalho da disciplina de Estrutura de Dados 2 — UnB.
 
 ## Descrição do problema
 
