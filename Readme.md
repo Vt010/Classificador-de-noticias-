@@ -1,6 +1,6 @@
 # Classificador de Notícias por Grafo
 
-Trabalho da disciplina de Estrutura de Dados 2 — UnB.
+Trabalho da disciplina de Estrutura de Dados 2 — Grupo 18 — UnB.
 
 ## Descrição do problema
 
@@ -56,6 +56,10 @@ cd Classificador-de-noticias-
 ```
 python main.py
 ```
+
+## Apresentação
+O trabalho será apresentando com os seguintes [slides](./slides/Apresentação%20Classificador%20de%20noticia%20por%20grafo.pdf)
+
 ## Integrantes do grupo
 
 - DANILO SARMENTO BARROS
